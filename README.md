@@ -31,6 +31,6 @@ print(metaData.title);
 ## Support Platform
 
 - [x] IOS
-- [] Android
+- [ ] Android
 
 
