@@ -9,28 +9,25 @@ A simple usage example:
 ```
 import 'package:audio_metadata/audio_metadata.dart';
 
-final AudioMetaData metaData = await AudioMetadata.getAudioMetaData(result.files.single.path);
+final AudioMetaData metaData = await AudioMetadata.getAudioMetaData(filePath);
 print(metaData.title);
 
 ```
 
 ## Support fields
-  * **fileOwner**
   * **album**
   * **albumArtist**
-  * **copyright**
-  * **subtitle**
-  * **lengthInMilliseconds**
+  * **duration**
   * **sizeInBytes**
   * **genre**
   * **artist**
   * **title**
-  * **originalFilename**
-  * **creationDateStamp**
+  * **filename**
+  * **creationDate**
 
 ## Support Platform
 
 - [x] IOS
-- [ ] Android
+- [x] Android
 
 

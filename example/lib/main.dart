@@ -15,21 +15,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  AudioMetaData metaData;
 
   Future<void> initPlatformState() async {
-    AudioMetaData metaData;
     try {
-      FilePickerResult result = await FilePicker.platform.pickFiles();
+      FilePickerResult result = await FilePicker.platform.pickFiles(
+        allowedExtensions: ['mp3'],
+        type: FileType.custom,
+      );
 
       if (result != null) {
         metaData = await AudioMetadata.getAudioMetaData(
           result.files.single.path,
         );
-        print(metaData);
+        setState(() {});
       }
     } on PlatformException {}
   }
@@ -41,11 +40,20 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: FlatButton(
-            onPressed: initPlatformState,
-            child: const Text('Pick mp3 file'),
-          ),
+        body: Column(
+          children: [
+            const SizedBox(height: 100),
+            Center(
+              child: FlatButton(
+                onPressed: initPlatformState,
+                child: const Text('Pick mp3 file'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(metaData?.toString() ?? ''),
+            ),
+          ],
         ),
       ),
     );

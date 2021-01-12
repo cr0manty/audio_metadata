@@ -1,17 +1,15 @@
 import 'dart:convert';
 
 class AudioMetaData {
-  final String fileOwner;
   final String album;
   final String albumArtist;
-  final String copyright;
   final String subtitle;
-  final double lengthInMilliseconds;
+  final double duration;
   final int sizeInBytes;
   final String genre;
   final String artist;
   final String title;
-  final String originalFilename;
+  final String filename;
   final double creationDateStamp;
 
   const AudioMetaData({
@@ -19,11 +17,9 @@ class AudioMetaData {
     this.albumArtist,
     this.title,
     this.artist,
-    this.copyright,
-    this.fileOwner,
     this.genre,
-    this.lengthInMilliseconds,
-    this.originalFilename,
+    this.duration,
+    this.filename,
     this.sizeInBytes,
     this.subtitle,
     this.creationDateStamp,
@@ -34,11 +30,9 @@ class AudioMetaData {
         albumArtist: json['album_artist'],
         title: json['title'],
         artist: json['artist'],
-        copyright: json['copyright'],
-        fileOwner: json['file_owner'],
         genre: json['genre'],
-        lengthInMilliseconds: json['length_in_milliseconds'],
-        originalFilename: json['original_filename'],
+        duration: json['duration'],
+        filename: json['filename'],
         sizeInBytes: json['size_in_bytes'],
         subtitle: json['subtitle'],
         creationDateStamp: json['creation_date_stamp'],
@@ -49,13 +43,10 @@ class AudioMetaData {
         'album_artist': albumArtist,
         'title': title,
         'artist': artist,
-        'copyright': copyright,
-        'file_owner': fileOwner,
         'genre': genre,
-        'length_in_milliseconds': lengthInMilliseconds,
-        'original_filename': originalFilename,
+        'duration': duration,
+        'filename': filename,
         'size_in_bytes': sizeInBytes,
-        'subtitle': subtitle,
         'creation_date_stamp': creationDateStamp,
       };
 
@@ -71,7 +62,7 @@ class AudioMetaData {
   }
 
   DateTime get creationDate =>
-      DateTime.fromMicrosecondsSinceEpoch(creationDateStamp.toInt() * 1000);
+      DateTime.fromMillisecondsSinceEpoch(creationDateStamp.toInt() * 1000);
 
   @override
   String toString() => jsonEncode(toJson());
