@@ -1,0 +1,28 @@
+name: audio_metadata
+description: Plugin allows you to get metadata from any mp3 file for both mobile platforms (iOS and Android)
+version: 0.0.1
+homepage: https://github.com/cr0manty/audio_metadata
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+  plugin:
+    platforms:
+      android:
+        package: com.cr0manty.audio_metadata
+        pluginClass: AudioMetadataPlugin
+      ios:
+        pluginClass: AudioMetadataPlugin
