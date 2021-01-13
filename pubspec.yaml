@@ -1,6 +1,6 @@
 name: audio_metadata
 description: Plugin allows you to get metadata from any mp3 file for both mobile platforms (iOS and Android)
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/cr0manty/audio_metadata
 
 environment:

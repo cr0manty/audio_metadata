@@ -9,7 +9,7 @@ A simple usage example:
 ```
 import 'package:audio_metadata/audio_metadata.dart';
 
-final AudioMetaData metaData = await AudioMetadata.getAudioMetaData(filePath);
+final AudioMetaData metaData = await AudioMetaDataManager.getAudioMetaData(filePath);
 print(metaData.title);
 
 ```

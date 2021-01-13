@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
       );
 
       if (result != null) {
-        metaData = await AudioMetadata.getAudioMetaData(
+        metaData = await AudioMetaDataManager.getAudioMetaData(
           result.files.single.path,
         );
         setState(() {});
